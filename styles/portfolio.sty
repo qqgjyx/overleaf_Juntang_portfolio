@@ -1,0 +1,198 @@
+\ProvidesPackage{portfolio}
+
+% ============================================================================
+% PACKAGE IMPORTS
+% ============================================================================
+\RequirePackage[margin=1.0in]{geometry}
+\RequirePackage{iftex}
+% For LuaLaTeX/XeLaTeX, prefer system fonts via fontspec
+\ifLuaTeX
+  \RequirePackage{fontspec}
+  % Prefer Inter; fall back to TeX Gyre Heros if Inter is unavailable
+  \IfFontExistsTF{Inter}{%
+    \setsansfont{Inter}[
+      Scale=MatchLowercase,
+      Ligatures=TeX,
+      UprightFont = * Regular,
+      BoldFont    = * Bold,
+      ItalicFont  = * Italic,
+      BoldItalicFont = * Bold Italic,
+    ]
+  }{%
+    \setsansfont{TeX Gyre Heros}[
+      Scale=MatchLowercase,
+      Ligatures=TeX,
+    ]
+  }
+  % Use sans as default family
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+\RequirePackage{microtype}
+\RequirePackage{textgreek}
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{hyperref}
+\RequirePackage{enumitem}
+\RequirePackage{caption}
+\RequirePackage{subcaption}
+\RequirePackage{float}
+\RequirePackage{wrapfig}
+\RequirePackage{tikz}
+% FontAwesome is optional; if not present, define a no-op \faIcon
+\IfFileExists{fontawesome5.sty}{\RequirePackage{fontawesome5}}{\providecommand{\faIcon}[1]{}}
+\RequirePackage{qrcode}
+\RequirePackage{fancyhdr}
+\RequirePackage{titlesec}
+
+% ============================================================================
+% FONT CONFIGURATION
+% ============================================================================
+% Serif body with matching math; modern sans available for headings
+% Math font (pairs reasonably with sans body); safe across engines
+\RequirePackage{newpxmath}
+
+% Micro-typography and line spacing
+\microtypesetup{protrusion=true,expansion=true}
+\RequirePackage{setspace}
+\setstretch{1.15}
+
+% Paragraph spacing (no indent; modest vertical skip)
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+
+% ============================================================================
+% COLOR PALETTE
+% ============================================================================
+\definecolor{Accent}{HTML}{0033A0}
+\definecolor{TextGray}{HTML}{4A4A4A}
+\definecolor{LightGray}{HTML}{999999}
+
+% ============================================================================
+% HYPERREF SETUP
+% ============================================================================
+\hypersetup{
+  colorlinks=true,
+  linkcolor=Accent,
+  urlcolor=Accent,
+  citecolor=Accent,
+  pdfborder={0 0 0}
+}
+
+% ============================================================================
+% SECTION HEADING STYLE
+% ============================================================================
+\titleformat{\section}
+  {\sffamily\bfseries\color{Accent}\fontsize{20}{24}\selectfont}
+  {}
+  {0pt}
+  {}
+  [\color{Accent!50}\titlerule]
+\titlespacing*{\section}{0pt}{1.2em}{0.7em}
+
+\titleformat{\subsection}
+  {\sffamily\bfseries\color{TextGray}\fontsize{16}{20}\selectfont}
+  {}
+  {0pt}
+  {}
+\titlespacing*{\subsection}{0pt}{0.9em}{0.45em}
+
+\titleformat{\subsubsection}
+  {\sffamily\bfseries\color{LightGray}\fontsize{13}{16}\selectfont}
+  {}
+  {0pt}
+  {}
+\titlespacing*{\subsubsection}{0pt}{0.6em}{0.3em}
+
+% ============================================================================
+% FIGURE CAPTIONS
+% ============================================================================
+\captionsetup{
+  font={small,sf},
+  labelfont={bf,color=TextGray},
+  textfont={color=LightGray},
+  justification=centering,
+  skip=8pt
+}
+% Graphic defaults: bound images to line width by default
+\setkeys{Gin}{width=\linewidth,keepaspectratio}
+
+% ============================================================================
+% PAGE NUMBERING SETUP
+% ============================================================================
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\thepage}
+
+% Define styles for no page numbers (cover/backpage)
+\fancypagestyle{nopagenumber}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+% ============================================================================
+% REUSABLE MACROS
+% ============================================================================
+
+% Badge/Tag for highlighting skills or status
+\newcommand{\badge}[1]{%
+  \tikz[baseline=(char.base)]{
+    \node[
+      anchor=base,
+      rounded corners=2pt,
+      draw=Accent!60,
+      text=Accent!90,
+      inner xsep=6pt,
+      inner ysep=2pt,
+      font=\footnotesize
+    ] (char) {#1};
+  }%
+}
+
+% Project Entry Block
+% Usage: \ProjectEntry{title}{role}{stack}{bullets}{image}{links}{badges}
+\newcommand{\ProjectEntry}[7]{%
+  \vspace{0.4em}
+  {\sffamily\bfseries\fontsize{15}{18}\selectfont\textcolor{Accent}{#1}}\par
+  {\color{Accent!35}\rule{\linewidth}{0.5pt}}\par\vspace{0.3em}
+  \textit{#2}\quad\textcolor{TextGray}{#3}\par
+  \begin{itemize}[leftmargin=1.2em, itemsep=0.2em, topsep=0.2em]
+    #4
+  \end{itemize}
+  \noindent
+  \begin{minipage}[t]{0.62\textwidth}
+    \small \textbf{Links:} #6
+    \par\vspace{0.3em}
+    \small \textbf{Highlights:} #7
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.35\textwidth}
+    \raggedleft
+    \includegraphics[width=\linewidth]{#5}
+  \end{minipage}
+  \par\vspace{0.6em}
+  \hrule
+  \vspace{0.6em}
+}
+
+% External link with icon
+\newcommand{\extlink}[2]{\href{#1}{\faIcon{link}\;#2}}
+
+% QR code helper
+\newcommand{\qr}[1]{\qrcode[height=0.9in]{#1}}
+
+% Compact bullet item
+\newcommand{\bitem}[1]{\item \small #1}
+
+% Two-column flexible layout (not used in this template, but available if needed)
+% Usage: \begin{twocols} ... \midcols ... \end{twocols}
+\newenvironment{twocols}%
+  {\begin{minipage}[t]{0.49\textwidth}\raggedright}%
+  {\end{minipage}}
+
+% Global list spacing defaults
+\setlist[itemize]{leftmargin=1.2em,itemsep=0.25em,topsep=0.25em}
+\setlist[enumerate]{leftmargin=1.4em,itemsep=0.25em,topsep=0.25em}
+
+\endinput
+

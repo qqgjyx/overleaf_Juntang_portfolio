@@ -1,0 +1,22 @@
+\begin{tikzpicture}[scale=0.62]
+    \draw[->, thick] (0,0) -- (4.5,0) node[right, font=\small] {t};
+    \draw[->, thick] (0,0) -- (0,3.5) node[above, font=\small] {1/ARI};
+    \draw[step=0.5, gray!30, very thin] (0,0) grid (4,3);
+    \draw[thick, red!70!black] plot[mark=*, mark size=1.5pt, mark options={fill=red!70!black}] coordinates {
+      (0.0, 1.70) (0.4, 1.84) (0.8, 1.56) (1.2, 1.30) (1.6, 1.44) (2.0, 1.76) (2.4, 1.90) (2.8, 1.64) (3.2, 1.36) (3.6, 1.50) (4.0, 1.82) (4.4, 2.10)
+    };
+    \node[red!70, font=\small, anchor=west] at (3, 3.5) {K-means};
+    \draw[thick, orange!70!black] plot[mark=*, mark size=1.5pt, mark options={fill=orange!70!black}] coordinates {
+      (0.0, 1.36) (0.4, 1.44) (0.8, 1.30) (1.2, 1.16) (1.6, 1.24) (2.0, 1.38) (2.4, 1.50) (2.8, 1.34) (3.2, 1.20) (3.6, 1.28) (4.0, 1.42) (4.4, 1.54)
+    };
+    \node[orange!70, font=\small, anchor=west] at (3, 3) {Spectral};
+    \draw[thick, blue!70!black] plot[mark=*, mark size=1.5pt, mark options={fill=blue!70!black}] coordinates {
+      (0.0, 0.96) (0.4, 0.92) (0.8, 1.00) (1.2, 0.88) (1.6, 0.94) (2.0, 0.90) (2.4, 0.98) (2.8, 0.86) (3.2, 0.92) (3.6, 0.88) (4.0, 0.96) (4.4, 0.84)
+    };
+    \node[blue!70, font=\small, anchor=west] at (3, 2.5) {Config.};
+    \draw[purple!60, dashed, thick] (1.2, 0) -- (1.2, 3);
+    \draw[purple!60, dashed, thick] (2.8, 0) -- (2.8, 3);
+    \node[purple!60, font=\small] at (1.2, -0.3) {Split};
+    \node[purple!60, font=\small] at (2.8, -0.3) {Merge};
+\end{tikzpicture}
+%

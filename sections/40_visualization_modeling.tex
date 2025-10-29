@@ -1,0 +1,120 @@
+% ============================================================================
+% VISUALIZATION & COMPUTATIONAL MODELING
+% ============================================================================
+
+\section*{Data Visualization \& Computational Modeling}
+\addcontentsline{toc}{section}{Visualization \& Modeling}
+
+\vspace{0.5em}
+
+\textit{This section showcases selected visualizations and computational models that demonstrate technical depth, aesthetic quality, and scientific insight. Each figure tells a story about the underlying data or system.}
+
+\vspace{1em}
+
+% ============================================================================
+% VISUALIZATION 1: mheatmap Spectral Reordering
+% ============================================================================
+
+\subsection*{Proportional Heatmaps with Spectral Reordering}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{assets/tool_mheatmap_1.png}
+\caption{Comparison of standard heatmap (left) vs. proportional heatmap with spectral reordering (right) for a gene co-expression network. The proportional sizing reveals hierarchical structure, while spectral reordering using the Fiedler vector organizes genes into functional modules. Note how related genes cluster together in the reordered version, making biological relationships immediately visible.}
+\end{figure}
+
+\textbf{Technical Details:}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
+  \item Spectral reordering computed from graph Laplacian eigenvector (Fiedler vector)
+  \item Cell areas proportional to correlation strength $r^2$
+  \item Color intensity encodes correlation sign (positive = red, negative = blue)
+  \item Reveals 5 distinct gene modules not visible in original ordering
+\end{itemize}
+
+\textbf{Insight:} Spectral reordering transforms seemingly random data into interpretable block structure, uncovering hidden functional organization. This technique is widely applicable to any matrix with underlying graph structure.
+
+\vspace{2em}
+
+% ============================================================================
+% VISUALIZATION 2: EEG Time-Frequency Analysis
+% ============================================================================
+
+\subsection*{EEG Time-Frequency Dynamics During Sleep Transitions}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{assets/proj_eeg_1.png}
+\caption{Time-frequency spectrogram of EEG activity during wake-to-sleep transition. Generated using continuous wavelet transform (Morlet wavelet) in R with ggplot2. Note the characteristic decrease in beta activity (13-30 Hz) and increase in delta power (0.5-4 Hz) as the subject transitions from wake (left) to NREM sleep (right). The sharp spindle activity (12-15 Hz bursts) marks Stage 2 sleep onset.}
+\end{figure}
+
+\textbf{Technical Details:}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
+  \item Continuous wavelet transform with Morlet wavelet (frequency range: 0.5-40 Hz)
+  \item Time resolution: 30-second epochs; frequency resolution: 0.5 Hz bins
+  \item Normalized power spectral density (dB scale relative to baseline)
+  \item Created using custom R pipeline with \texttt{eegkit}, \texttt{signal}, and \texttt{ggplot2}
+\end{itemize}
+
+\textbf{Insight:} Time-frequency analysis reveals transient dynamics that are invisible in traditional power spectrum plots. This visualization technique is essential for understanding non-stationary brain activity during cognitive tasks and sleep state transitions.
+
+\newpage
+
+% ============================================================================
+% VISUALIZATION 3: ODE System Modeling
+% ============================================================================
+
+\subsection*{Computational Modeling: Glucose-Insulin Dynamics}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.75\textwidth]{assets/placeholder_1600x900.png}
+\caption{Phase portrait and time series simulation of minimal glucose-insulin model. The system exhibits limit cycle behavior representing ultradian oscillations observed in healthy individuals. Parameter values: $V_g = 10$ L, $k_1 = 0.05$ min$^{-1}$, $k_2 = 0.025$ min$^{-1}$, $V_i = 2$ L. Simulation performed in MATLAB using ode45 solver with relative tolerance $10^{-6}$.}
+\end{figure}
+
+\textbf{Mathematical Model:}
+
+The glucose-insulin regulatory system can be modeled by coupled ordinary differential equations:
+
+\[
+\frac{dG}{dt} = G_{in}(t) - k_1 G - k_2 G I
+\]
+\[
+\frac{dI}{dt} = -k_3 I + k_4 G (G - G_b)
+\]
+
+where $G$ is blood glucose concentration (mg/dL), $I$ is plasma insulin (mU/L), $G_{in}(t)$ is glucose input from meals, $G_b$ is baseline glucose, and $k_i$ are rate constants.
+
+\textbf{Analysis:}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
+  \item Equilibrium point at $(G^*, I^*) = (90, 10)$ corresponding to fasting state
+  \item Jacobian stability analysis reveals stable focus for healthy parameters
+  \item Bifurcation analysis shows transition to oscillatory regime at critical insulin sensitivity
+  \item Model reproduces clinical observations: glucose peaks 30-60 min post-meal, insulin peaks 60-90 min
+\end{itemize}
+
+\textbf{Insight:} Computational modeling reveals how feedback loops between glucose and insulin create homeostatic regulation. Dysregulation of these dynamics (e.g., insulin resistance) can be studied by varying model parameters, providing insights into diabetes pathophysiology.
+
+\vspace{2em}
+
+% ============================================================================
+% VISUALIZATION 4: Network Graph Embedding
+% ============================================================================
+
+\subsection*{Graph Embedding: Citation Network Structure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.75\textwidth]{assets/placeholder_1600x900.png}
+\caption{2D embedding of academic citation network using SG-t-SNE-\textPi{} algorithm. Each point represents a paper; colors indicate research communities detected by Louvain algorithm. Links show citation relationships (directional: citing $\to$ cited). The embedding preserves both local citation patterns and global community structure, revealing interdisciplinary bridges between machine learning (blue), systems biology (red), and computational neuroscience (green).}
+\end{figure}
+
+\textbf{Technical Details:}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
+  \item Network: 5,234 papers, 18,627 citation edges from arXiv CS/q-bio
+  \item Features: TF-IDF vectors of titles and abstracts (300 dimensions)
+  \item Embedding: SG-t-SNE-\textPi{} with perplexity = 30, learning rate = 200, 1000 iterations
+  \item Community detection: Louvain algorithm with modularity = 0.68
+\end{itemize}
+
+\textbf{Insight:} Graph-aware dimensionality reduction reveals the intellectual structure of scientific fields. Papers form tight clusters within communities but also show "bridge" papers connecting different disciplines. This visualization helps identify emerging research areas and potential collaboration opportunities.
+

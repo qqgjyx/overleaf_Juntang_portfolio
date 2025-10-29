@@ -1,0 +1,16 @@
+\begin{tikzpicture}[scale=0.62]
+    \draw[->, thick] (0,0) -- (4.5,0) node[right, font=\small] {$H_\gamma$};
+    \draw[->, thick] (0,0) -- (0,3.5) node[above, font=\small] {$\%$};
+    \draw[step=0.5, gray!30, very thin] (0,0) grid (4,3);
+    \draw[thick, blue!70!black] plot[mark=*, mark size=1.5pt, mark options={fill=blue!70!black}] coordinates {
+      (0.0, 0.08) (0.2, 0.15) (0.4, 0.32) (0.6, 0.68) (0.8, 1.28) (1.0, 2.18) (1.2, 2.78) (1.4, 2.88) (1.6, 2.82) (1.8, 2.68) (2.0, 2.38) (2.2, 1.98) (2.4, 1.58) (2.6, 1.22) (2.8, 0.92) (3.0, 0.67) (3.2, 0.47) (3.4, 0.32) (3.6, 0.22) (3.8, 0.14) (4.0, 0.10)
+    };
+    \node[blue!70, font=\small] at (1.7, 3.3) {Normal};
+    \node[blue!70, font=\small] at (1.7, -0.3) {2.3\s{0.8}};
+    \draw[thick, red!70!black] plot[mark=*, mark size=1.5pt, mark options={fill=red!70!black}] coordinates {
+      (0.0, 0.03) (0.2, 0.05) (0.4, 0.07) (0.6, 0.10) (0.8, 0.14) (1.0, 0.20) (1.2, 0.28) (1.4, 0.38) (1.6, 0.51) (1.8, 0.68) (2.0, 0.88) (2.2, 1.13) (2.4, 1.43) (2.6, 1.78) (2.8, 2.18) (3.0, 2.58) (3.2, 2.88) (3.4, 2.98) (3.6, 2.83) (3.8, 2.48) (4.0, 2.08)
+    };
+    \node[red!70, font=\small] at (3.5, 3.3) {Novel};
+    \node[red!70, font=\small] at (3.5, -0.3) {4.7\s{1.2}};
+\end{tikzpicture}
+%

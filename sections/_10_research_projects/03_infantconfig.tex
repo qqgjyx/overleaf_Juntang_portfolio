@@ -1,0 +1,63 @@
+\ProjectEntry
+{Brain-Inspired Perspective on Configurations: Unsupervised Similarity and Early Cognition}
+{First Author}
+{Theory, Unsupervised Learning, Brain-Inspired Computation}
+{
+  \bitem{Studies configurations from a cognitive perspective, relating unsupervised similarity and early cognition.}
+  \bitem{Provides theoretical motivation for why configuration structure supports downstream prediction (complementary to GraMixC).}
+  \bitem{Connects lineage diagrams, attention structure, and similarity to emergent representation geometry.}
+}
+{assets/1003_infantconfig/02a_schematic.png}
+{\extlink{https://arxiv.org/abs/2510.19229}{arXiv preprint}}
+{\badge{Brain-Inspired Computation} \badge{BICS 2025}}
+
+\textbf{Technical Highlights:}
+This work formalizes configurations as organizing structures that emerge from unsupervised similarity, offering a brain-inspired account of early category formation. We analyze how a lineage parameter \(\gamma\) controls hierarchical granularity and how energy components (attraction \(h_a\), repulsion \(h_r\)) shape stable configuration landscapes that support downstream learning.
+
+\begin{figure}[ht]
+  \centering
+  \vspace{-0.5em}
+  \subcaptionbox{Lineage (schem.)\label{fig:lineage_schem}}[0.25\linewidth]{%
+    \input{assets/1003_infantconfig/01a_schematic.tex}%
+  }
+  \subcaptionbox{Lineage (CIFAR)\label{fig:lineage_cifar}}[0.2\linewidth]{%
+    \includegraphics[width=\linewidth]{assets/1003_infantconfig/01_cifar10subset.png}%
+  }
+  \subcaptionbox{Energy (MNIST)\label{fig:energy_mnist}}[0.237\linewidth]{%
+    \input{assets/1003_infantconfig/01c_har_mnist.tex}%
+  }
+  \subcaptionbox{Energy (WHU)\label{fig:energy_whu}}[0.237\linewidth]{%
+    \input{assets/1003_infantconfig/01d_har_whuhi.tex}%
+  }
+  \caption{
+    Configuration lineage and energy landscapes. 
+    \textbf{(a)\&(b)} Configuration lineages: $\gamma$ controls hierarchical granularity from coarse to fine. 
+    \textbf{(c)\&(d)} Energy landscapes: Axes show attraction $h_a$ and repulsion $h_r$.}
+  \label{fig:01_lineage_har}
+\end{figure}
+
+\textbf{Key Results:}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
+  \item Hierarchical selectivity: superordinate categories stabilize at low \(\gamma\), basic-level categories at higher \(\gamma\), reflecting scale-dependent organization (Fig.~\ref{fig:04_a}).
+  \item Novelty detection: energy distributions separate familiar vs. novel inputs (AUC \(\approx\) 0.87), echoing infant habituation paradigms (Fig.~\ref{fig:04_b}).
+  \item Dynamic evolution: configurations achieve consistently lower 1/ARI than baselines during category evolution, indicating more stable organization (Fig.~\ref{fig:04_c}).
+  \item Geometry: lineage diagrams and energy contours reveal interpretable structure that aligns with emergent representation geometry (Fig.~\ref{fig:01_lineage_har}).
+\end{itemize}
+
+\textbf{Impact:}
+By linking unsupervised similarity, hierarchical lineage, and energy-based organization, this project offers a principled, cognitively motivated view of how early concepts can form without labels. The framework complements GraMixC by explaining why configuration structure is predictive, and it suggests broader applications in domains where category structure and novelty signals emerge from unlabeled data.
+
+\begin{figure}[ht]
+  \centering
+  \subcaptionbox{Hierarchical Selectivity\label{fig:04_a}}[0.33\linewidth]{\input{assets/1003_infantconfig/04a_.tex}}
+  \subcaptionbox{Novelty Detection\label{fig:04_b}}[0.33\linewidth]{\input{assets/1003_infantconfig/04b_.tex}}
+  \hspace{-1em}
+  \subcaptionbox{Dynamic Evolution\label{fig:04_c}}[0.33\linewidth]{\input{assets/1003_infantconfig/04c_.tex}}
+  \caption{
+    Brain-inspired capabilities of configurations.
+    \textbf{(a)} Superordinate categories emerge at low $\gamma$ (0.2--0.6), basic-level at high $\gamma$ (1.2--1.8). Plateaus show stable organizational scales.
+    \textbf{(b)} Energy distributions distinguish novel from familiar stimuli (87\% AUC), paralleling infant habituation.
+    \textbf{(c)} Configurations achieve stable 35\% lower 1/ARI than other two baselines during category evolution.
+  }
+  \label{fig:04}
+\end{figure}

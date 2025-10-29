@@ -1,0 +1,34 @@
+\ProjectEntry
+{Unsupervised Segmentation in Hyperspectral Imaging}
+{Summer Research \& Independent Study with Prof. Xiaobai Sun, Prof. Nikos Pitsianis, Dimitrios Floros}
+{Python, SG-t-SNE-\textPi, Spectral Methods, Community Detection}
+{
+  \bitem{Studied precursor clustering and community detection methods, collecting over 5 methods and more than 10 datasets for hyperspectral imaging segmentation.}
+  \bitem{Implemented and optimized SG-t-SNE-\textPi{} algorithm for dimensionality reduction preserving local and global structure.}
+  \bitem{Utilized k-nearest neighbor graphs, Stochastic Graph t-SNE, and Parallel Clustering with Resolution Variation for unsupervised segmentation.}
+  \bitem{Developed Python packages mheatmap and pysgtsnepi for HSI data processing, achieving 600+ GitHub stars community adoption.}
+  \bitem{Worked with Python (scikit-learn), MATLAB, and Julia for implementation and validation.}
+}
+{assets/1000_hsi/00_.png}
+{\extlink{https://www.qqgjyx.com/files/p00-HSI.pdf}{Poster}}
+{\badge{HSI} \badge{Graph} \badge{Unsupervised Learning}}
+
+\textbf{Technical Highlights:}
+Hyperspectral images contain hundreds of spectral bands per pixel, creating extremely high-dimensional data that is challenging to segment without labels. This project leverages spectral graph theory to build a similarity graph where pixels are nodes and edges encode spectral similarity.
+
+\textbf{Methodology:}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
+  \item Construct k-nearest neighbor graph in spectral space using efficient approximate nearest neighbor search
+  \item Apply SG-t-SNE-\textPi{} to embed the graph structure into 2D/3D space while preserving cluster structure
+  \item Use community detection to identify coherent spectral regions corresponding to materials or land cover types
+  \item Validate segmentations against ground truth using metrics like adjusted Rand index and normalized mutual information
+\end{itemize}
+
+\textbf{Key Findings:}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
+  \item BlueRed consistently outperforms traditional baselines on HSI clustering
+  \item Robust to spectral noise and spatial variability; produces coherent segments
+\end{itemize}
+
+\textbf{Impact:} 
+The approach sets a stronger baseline for unsupervised HSI analysis with practical implications in agriculture, climate, remote sensing, and medical diagnostics. Future work: improve computational efficiency and extend to more HSI scenarios.

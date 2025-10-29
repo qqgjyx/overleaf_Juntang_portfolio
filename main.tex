@@ -1,14 +1,70 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+% Target ≤20 pages. Prefer images over text. Keep captions concise.
+\documentclass[12pt,letterpaper]{article}
 
-\title{Juntang_portfolio}
-\author{Juntang & Yihan Wang}
-\date{October 2025}
+% Load custom portfolio style
+\usepackage{styles/portfolio}
+
+\input{math_commands.tex}
+\newcommand{\s}[1]{\textcolor{gray}{\scriptsize{±#1}}}
+\newcommand{\lb}[1]{\textbf{#1}}
+\newcommand{\gb}[1]{\textbf{\underline{#1}}}
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
+
+% ============================================================================
+% PDF METADATA
+% ============================================================================
+\hypersetup{
+  pdftitle={Juntang Wang - Academic Portfolio},
+  pdfauthor={Juntang Wang},
+  pdfsubject={Portfolio of Applied Mathematics, Computer Science, and AI Research},
+  pdfkeywords={Machine Learning, Applied Mathematics, Computational Science, Data Science, Research, Duke}
+}
 
 \begin{document}
 
-\maketitle
+% ============================================================================
+% COVER PAGE
+% ============================================================================
+\thispagestyle{nopagenumber}
+\input{sections/00_cover.tex}
+\newpage
 
-\section{Introduction}
+% ============================================================================
+% TABLE OF CONTENTS
+% ============================================================================
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+% ============================================================================
+% RESEARCH PROJECTS (6–8 pages)
+% ============================================================================
+\input{sections/10_research_projects.tex}
+
+% ============================================================================
+% SOFTWARE TOOLS (4–5 pages)
+% ============================================================================
+\input{sections/20_software_tools.tex}
+
+% ============================================================================
+% COURSEWORK PROJECTS (4–5 pages)
+% ============================================================================
+\input{sections/30_coursework_projects.tex}
+
+% ============================================================================
+% VISUALIZATION & MODELING (2–3 pages)
+% ============================================================================
+\input{sections/40_visualization_modeling.tex}
+
+% ============================================================================
+% PERSONAL & CREATIVE (0–2 pages, optional)
+% ============================================================================
+\input{sections/50_personal_creative.tex}
+
+% ============================================================================
+% BACK PAGE
+% ============================================================================
+\thispagestyle{nopagenumber}
+\input{sections/99_backpage.tex}
 
 \end{document}

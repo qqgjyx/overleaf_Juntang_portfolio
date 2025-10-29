@@ -1,0 +1,34 @@
+\begin{tikzpicture}[
+    scale=0.5,
+    every node/.style={
+        font=\tiny,
+    },
+]
+    \draw[->,thick] (0,0) -- (-4.5,0) node[midway, above] {$h_a$};
+    \draw[->,thick] (0,0) -- (0,-4.5) node[midway, left] {$h_r$};
+    \filldraw[black] (0,0) circle (1.2pt);
+    \node[anchor=south] at (0,0) {0};
+    \filldraw[black] (-4,0) circle (1.2pt);
+    \node[anchor=south] at (-4,0) {$\mOmega_{0}$};
+    \filldraw[black] (0,-4) circle (1.2pt);
+    \node[anchor=north east] at (0,-4) {$\mOmega_{\infty}$};
+    \filldraw[black] (-3.5,-2.5) circle (1.2pt);
+    \node[anchor=south west] at (-3.5,-2.5) {$\boxed{\mOmega_{0.37}}$};
+    \filldraw[black] (-3,-3) circle (1.2pt);
+    \node[anchor=north east] at (-3,-3) {$\mOmega_{1.12}$};
+    \filldraw[black] (-1.5,-3.8) circle (1.2pt);
+    \node[anchor=north east] at (-1.5,-3.8) {$\mOmega_{3.53}$};
+    \draw[red, thick] (-3.5-0.12, -2.3-0.12) -- (-3.5+0.12, -2.3+0.12);
+    \draw[red, thick] (-3.5-0.12, -2.3+0.12) -- (-3.5+0.12, -2.3-0.12);
+    \node[anchor=east] at (-3.5, -2.3) {\color{red}GT};
+    \draw[thick] (-4,0) -- (-3.5,-2.5);
+    \draw[thick] (-3.5,-2.5) -- (-3,-3);
+    \draw[thick] (-3,-3) -- (-1.5,-3.8);
+    \draw[thick] (-1.5,-3.8) -- (0,-4);
+    \draw[orange,thick, decorate, decoration={brace, amplitude=4pt}]
+    ($(-1.45,-3.8)$) -- ($(0,-4)$)
+    node[midway, xshift=-0.5mm, yshift=2.5mm]{plateau};
+    \node[anchor=north east] at (-0.1, -0.1) {
+        $\boxed{\text{Acc}=0.92}$
+};
+\end{tikzpicture}

@@ -1,0 +1,136 @@
+% ============================================================================
+% SOFTWARE TOOLS
+% ============================================================================
+
+\section*{Software Tools \& Open Source Contributions}
+\addcontentsline{toc}{section}{Software Tools \& Open Source}
+
+% ============================================================================
+% TOOL 1: mheatmap
+% ============================================================================
+
+\addcontentsline{toc}{subsection}{mheatmap: Proportional Heatmaps}
+\ProjectEntry
+{mheatmap: Proportional Heatmaps with Spectral Reordering}
+{Creator \& Maintainer}
+{Python, NumPy, Matplotlib, Spectral Graph Theory}
+{
+  \bitem{Developed Python package for creating proportional heatmaps where cell sizes reflect data magnitude.}
+  \bitem{Implemented spectral reordering algorithms (Fiedler vector, spectral seriation) to reveal hidden structure.}
+  \bitem{Achieved 600+ GitHub stars and widespread adoption in bioinformatics, systems biology, and network analysis.}
+  \bitem{Package has been cited in peer-reviewed publications and used in production data analysis pipelines.}
+  \bitem{Maintained comprehensive documentation with tutorials, examples, and API reference.}
+}
+{assets/tool_mheatmap_1.png}
+{\extlink{https://github.com/qqgjyx/mheatmap}{GitHub (600+ stars)} \quad \extlink{https://pypi.org/project/mheatmap/}{PyPI package}}
+{\badge{Python Package} \badge{600+ Stars} \badge{Data Visualization}}
+
+\vspace{1em}
+
+\textbf{Technical Highlights:}
+
+Traditional heatmaps use fixed-size cells regardless of data magnitude, making it difficult to compare values across orders of magnitude. \texttt{mheatmap} solves this by making cell areas proportional to values, creating a more intuitive visualization of hierarchical or networked data.
+
+\textbf{Key Features:}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
+  \item \textbf{Proportional sizing:} Cell areas scale with data magnitude, preserving quantitative relationships
+  \item \textbf{Spectral reordering:} Automatically reorders rows/columns to reveal clusters and patterns using graph Laplacian eigenvectors
+  \item \textbf{Flexible color mapping:} Supports custom colormaps, logarithmic scaling, and diverging color schemes
+  \item \textbf{High-quality output:} Vector graphics export (PDF, SVG) suitable for publication
+  \item \textbf{Easy integration:} Works seamlessly with pandas DataFrames and NumPy arrays
+\end{itemize}
+
+\textbf{Use Cases:}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
+  \item Gene expression matrices in systems biology
+  \item Correlation matrices in financial data analysis
+  \item Adjacency matrices for network visualization
+  \item Confusion matrices in machine learning evaluation
+  \item Any tabular data with hierarchical or network structure
+\end{itemize}
+
+\textbf{Impact:} \texttt{mheatmap} has been adopted by research groups worldwide and cited in publications spanning biology, computer science, and data science. The tool fills a gap in the Python visualization ecosystem and has become a standard tool for exploratory data analysis.
+
+\vspace{1em}
+
+\textbf{Example Code:}
+\begin{verbatim}
+import mheatmap as mh
+import pandas as pd
+
+# Load data
+data = pd.read_csv('correlation_matrix.csv', index_col=0)
+
+# Create proportional heatmap with spectral reordering
+mh.heatmap(data, reorder=True, method='spectral',
+           cmap='RdBu_r', figsize=(10, 10))
+\end{verbatim}
+
+\newpage
+
+% ============================================================================
+% TOOL 2: pysgtsnepi
+% ============================================================================
+
+\addcontentsline{toc}{subsection}{pysgtsnepi: SG-t-SNE-\textPi{}}
+\ProjectEntry
+{pysgtsnepi: Spectral Graph t-SNE-\textPi{} Implementation}
+{Lead Developer}
+{Python, Cython, NumPy, SciPy, scikit-learn}
+{
+  \bitem{Implemented efficient Python package for SG-t-SNE-\textPi{} algorithm, a graph-aware dimensionality reduction method.}
+  \bitem{Optimized performance-critical components using Cython, achieving 10x speedup over pure Python.}
+  \bitem{Designed API compatible with scikit-learn's transformer interface for easy integration into ML pipelines.}
+  \bitem{Created comprehensive examples and tutorials demonstrating applications to graph-structured data.}
+  \bitem{Package enables visualization of high-dimensional data while preserving graph structure and communities.}
+}
+{assets/tool_pysgtsnepi_1.png}
+{\extlink{https://github.com/qqgjyx/pysgtsnepi}{GitHub repository} \quad \extlink{https://pysgtsnepi.readthedocs.io}{Documentation}}
+{\badge{Graph Algorithms} \badge{Dimensionality Reduction} \badge{Cython Optimization}}
+
+\vspace{1em}
+
+\textbf{Technical Highlights:}
+
+SG-t-SNE-\textPi{} (Spectral Graph t-distributed Stochastic Neighbor Embedding with Packing and Information theory) is an advanced dimensionality reduction algorithm that preserves both local neighborhood structure and global graph topology. Unlike standard t-SNE, it explicitly incorporates graph structure to produce embeddings that respect community boundaries and hierarchical organization.
+
+\textbf{Algorithm Overview:}
+\begin{enumerate}[leftmargin=1.2em, itemsep=0.1em]
+  \item \textbf{Spectral initialization:} Use graph Laplacian eigenvectors to initialize embedding, ensuring global structure preservation
+  \item \textbf{Pairwise affinity:} Compute affinities in high-dimensional space using both Euclidean distance and graph geodesic distance
+  \item \textbf{Optimization:} Minimize KL divergence between high-D and low-D probability distributions with graph-aware penalties
+  \item \textbf{Information packing:} Apply information-theoretic constraints to pack communities tightly while separating different communities
+\end{enumerate}
+
+\textbf{Performance Optimizations:}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
+  \item Barnes-Hut approximation for O(N log N) complexity
+  \item Sparse matrix operations for memory efficiency on large graphs
+  \item Cython-compiled gradient computation for numerical bottlenecks
+  \item Parallel computation of pairwise affinities using multiprocessing
+\end{itemize}
+
+\textbf{Applications:}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
+  \item Social network visualization preserving community structure
+  \item Single-cell RNA-seq data embedding with cell type organization
+  \item Knowledge graph visualization showing concept hierarchies
+  \item Citation network analysis revealing research topic clusters
+\end{itemize}
+
+\textbf{Example Usage:}
+\begin{verbatim}
+from pysgtsnepi import SGTSNEPI
+import networkx as nx
+
+# Load graph and node features
+G = nx.karate_club_graph()
+X = np.array([list(dict(nx.degree(G)).values())]).T
+
+# Embed with graph structure
+sgtsne = SGTSNEPI(n_components=2, perplexity=5)
+embedding = sgtsne.fit_transform(X, adjacency_matrix=nx.adjacency_matrix(G))
+\end{verbatim}
+
+\textbf{Impact:} This implementation makes state-of-the-art graph embedding accessible to researchers without requiring specialized knowledge of the algorithm internals. The package has been used in hyperspectral imaging analysis, single-cell genomics, and network science research.
+

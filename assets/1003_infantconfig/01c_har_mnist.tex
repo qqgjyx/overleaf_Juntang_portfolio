@@ -1,0 +1,25 @@
+\begin{tikzpicture}[
+    scale=0.5,
+    every node/.style={
+        font=\tiny,
+    },
+]
+    \draw[->,thick] (0,0) -- (-4.5,0) node[midway, above] {$h_a$};
+    \draw[->,thick] (0,0) -- (0,-4.5) node[midway, left] {$h_r$};
+    \filldraw[black] (0,0) circle (1.2pt);
+    \node[anchor=south] at (0,0) {0};
+    \filldraw[black] (-4,0) circle (1.2pt);
+    \node[anchor=south] at (-4,0) {$\mOmega_{0}$};
+    \filldraw[black] (0,-4) circle (1.2pt);
+    \node[anchor=north east] at (0,-4) {$\mOmega_{\infty}$};
+    \filldraw[black] (-3.1,-3.1) circle (1.2pt);
+    \node[anchor=north east] at (-3.1,-3.1) {$\boxed{\mOmega_{0.71}}$};
+    \draw[red, thick] (-3.1-0.12, -3.1-0.12) -- (-3.1+0.12, -3.1+0.12);
+    \draw[red, thick] (-3.1-0.12, -3.1+0.12) -- (-3.1+0.12, -3.1-0.12);
+    \node[anchor=south west] at (-3.1, -3.1) {\color{red}GT};
+    \draw[thick] (-4,0) -- (-3.1,-3.1);
+    \draw[thick] (-3.1,-3.1) -- (0,-4);
+    \node[anchor=north east] at (-0.1, -0.1) {
+        $\boxed{\text{Acc}=0.99}$
+};
+\end{tikzpicture}
