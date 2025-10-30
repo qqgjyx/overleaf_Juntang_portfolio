@@ -27,6 +27,7 @@ return {
  ["name:Inter Regular:mode=node;script=latn;language=dflt;+tlig;#566574"]={ "/usr/local/texlive/2025/texmf-dist/fonts/opentype/public/inter/Inter-Regular.otf", false },
  ["name:Inter Regular:mode=node;script=latn;language=dflt;+tlig;#620904"]={ "/usr/local/texlive/2025/texmf-dist/fonts/opentype/public/inter/Inter-Regular.otf", false },
  ["name:Inter Regular:mode=node;script=latn;language=dflt;+tlig;#745084"]={ "/usr/local/texlive/2025/texmf-dist/fonts/opentype/public/inter/Inter-Regular.otf", false },
+ ["name:Inter Regular:mode=node;script=latn;language=dflt;+tlig;#776130"]={ "/usr/local/texlive/2025/texmf-dist/fonts/opentype/public/inter/Inter-Regular.otf", false },
  ["name:Inter Regular:mode=node;script=latn;language=dflt;+tlig;#827872"]={ "/usr/local/texlive/2025/texmf-dist/fonts/opentype/public/inter/Inter-Regular.otf", false },
  ["name:Inter Regular:mode=node;script=latn;language=dflt;+tlig;#894101"]={ "/usr/local/texlive/2025/texmf-dist/fonts/opentype/public/inter/Inter-Regular.otf", false },
  ["name:Inter Regular:mode=node;script=latn;language=dflt;+tlig;+smcp;#517420"]={ "/usr/local/texlive/2025/texmf-dist/fonts/opentype/public/inter/Inter-Regular.otf", false },
