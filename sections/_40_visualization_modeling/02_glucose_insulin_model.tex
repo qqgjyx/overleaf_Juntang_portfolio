@@ -1,0 +1,36 @@
+% ============================================================================
+% VISUALIZATION 3: ODE System Modeling
+% ============================================================================
+
+\subsection*{Computational Modeling: Glucose-Insulin Dynamics}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.75\textwidth]{assets/placeholder_1600x900.png}
+\caption{Phase portrait and time series simulation of minimal glucose-insulin model. The system exhibits limit cycle behavior representing ultradian oscillations observed in healthy individuals. Parameter values: $V_g = 10$ L, $k_1 = 0.05$ min$^{-1}$, $k_2 = 0.025$ min$^{-1}$, $V_i = 2$ L. Simulation performed in MATLAB using ode45 solver with relative tolerance $10^{-6}$.}
+\end{figure}
+
+\textbf{Mathematical Model:}
+
+The glucose-insulin regulatory system can be modeled by coupled ordinary differential equations:
+
+\[
+\frac{dG}{dt} = G_{in}(t) - k_1 G - k_2 G I
+\]
+\[
+\frac{dI}{dt} = -k_3 I + k_4 G (G - G_b)
+\]
+
+where $G$ is blood glucose concentration (mg/dL), $I$ is plasma insulin (mU/L), $G_{in}(t)$ is glucose input from meals, $G_b$ is baseline glucose, and $k_i$ are rate constants.
+
+\textbf{Analysis:}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
+  \item Equilibrium point at $(G^*, I^*) = (90, 10)$ corresponding to fasting state
+  \item Jacobian stability analysis reveals stable focus for healthy parameters
+  \item Bifurcation analysis shows transition to oscillatory regime at critical insulin sensitivity
+  \item Model reproduces clinical observations: glucose peaks 30-60 min post-meal, insulin peaks 60-90 min
+\end{itemize}
+
+\textbf{Insight:} Computational modeling reveals how feedback loops between glucose and insulin create homeostatic regulation. Dysregulation of these dynamics (e.g., insulin resistance) can be studied by varying model parameters, providing insights into diabetes pathophysiology.
+
+

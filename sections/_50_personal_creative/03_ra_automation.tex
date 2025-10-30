@@ -1,0 +1,47 @@
+% ============================================================================
+% PROJECT: RA Automation Tools
+% ============================================================================
+
+\subsection*{Resident Advisor Automation Suite}
+
+\textbf{Context:} As a Resident Advisor (RA) at Duke Kunshan University (Aug 2024 - Present), I faced repetitive administrative tasks: scheduling duty rotations, tracking residence hall maintenance requests, creating door decorations for residents, and generating monthly reports. I automated these workflows using Python, serving residents across 3 years while handling 50+ incidents.
+
+\vspace{0.5em}
+
+\textbf{Tools Developed:}
+
+\begin{description}[leftmargin=4em, labelwidth=3.5em, labelsep=0.5em]
+  \item[Duty Scheduler:] Constraint satisfaction algorithm that generates fair rotation schedules respecting RA preferences and conflicts
+  \item[Door Decor Generator:] Python script to scrape Reddit images and resident roster for automatic door decoration creation, used by fellow RAs
+  \item[Maintenance Tracker:] SQLite database with web interface (Flask) for logging and tracking maintenance requests with priority levels
+  \item[Monthly Reports:] Auto-generated PDF reports with statistics, charts (matplotlib), and narrative summaries
+\end{description}
+
+\vspace{0.5em}
+
+\textbf{Technical Highlights:}
+
+\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
+  \item \textbf{Duty Scheduler:} Formulated as constraint satisfaction problem (CSP); used backtracking with forward checking to find valid schedules
+  \item \textbf{Door Decorations:} Template system with Jinja2-style placeholders; batch generation from CSV of resident names
+  \item \textbf{Maintenance Tracker:} RESTful API with authentication; automated email notifications when requests are resolved
+  \item \textbf{Reports:} ReportLab for PDF generation; matplotlib for charts; Jinja2 for HTML templates
+\end{itemize}
+
+\vspace{0.5em}
+
+\textbf{Impact:}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
+  \item Reduced time spent on scheduling from 2 hours/month to 5 minutes
+  \item Door decor script was shared with and adopted by fellow RAs across Duke Kunshan University
+  \item Maintenance tracking improved response time and organization efficiency
+  \item Demonstrated practical application of programming skills to solve real-world administrative challenges
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{assets/placeholder_1600x900.png}
+\caption{Example output from duty scheduler showing 4-week rotation matrix with RA assignments color-coded by preference satisfaction level. The algorithm ensures equal distribution of weekend and weekday duties while respecting conflict constraints.}
+\end{figure}
+
+

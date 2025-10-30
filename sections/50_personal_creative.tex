@@ -11,128 +11,13 @@
 
 \vspace{1em}
 
-% ============================================================================
-% PROJECT: RA Automation Tools
-% ============================================================================
-
-\subsection*{Resident Advisor Automation Suite}
+% Inputs for personal & creative entries
 \addcontentsline{toc}{subsection}{Resident Advisor Automation Suite}
-
-\textbf{Context:} As a Resident Advisor (RA) at Duke Kunshan University (Aug 2024 - Present), I faced repetitive administrative tasks: scheduling duty rotations, tracking residence hall maintenance requests, creating door decorations for residents, and generating monthly reports. I automated these workflows using Python, serving residents across 3 years while handling 50+ incidents.
-
-\vspace{0.5em}
-
-\textbf{Tools Developed:}
-
-\begin{description}[leftmargin=4em, labelwidth=3.5em, labelsep=0.5em]
-  \item[Duty Scheduler:] Constraint satisfaction algorithm that generates fair rotation schedules respecting RA preferences and conflicts
-  \item[Door Decor Generator:] Python script to scrape Reddit images and resident roster for automatic door decoration creation, used by fellow RAs
-  \item[Maintenance Tracker:] SQLite database with web interface (Flask) for logging and tracking maintenance requests with priority levels
-  \item[Monthly Reports:] Auto-generated PDF reports with statistics, charts (matplotlib), and narrative summaries
-\end{description}
-
-\vspace{0.5em}
-
-\textbf{Technical Highlights:}
-
-\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
-  \item \textbf{Duty Scheduler:} Formulated as constraint satisfaction problem (CSP); used backtracking with forward checking to find valid schedules
-  \item \textbf{Door Decorations:} Template system with Jinja2-style placeholders; batch generation from CSV of resident names
-  \item \textbf{Maintenance Tracker:} RESTful API with authentication; automated email notifications when requests are resolved
-  \item \textbf{Reports:} ReportLab for PDF generation; matplotlib for charts; Jinja2 for HTML templates
-\end{itemize}
-
-\vspace{0.5em}
-
-\textbf{Impact:}
-\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
-  \item Reduced time spent on scheduling from 2 hours/month to 5 minutes
-  \item Door decor script was shared with and adopted by fellow RAs across Duke Kunshan University
-  \item Maintenance tracking improved response time and organization efficiency
-  \item Demonstrated practical application of programming skills to solve real-world administrative challenges
-\end{itemize}
-
+\input{sections/_50_personal_creative/03_ra_automation.tex}
 \vspace{2em}
-
-% ============================================================================
-% WORK EXPERIENCE & RESEARCH
-% ============================================================================
-
-\subsection*{Professional Experience \& Additional Research}
 \addcontentsline{toc}{subsection}{Professional Experience \& Additional Research}
-
-\textbf{Product Analyst Intern, NTT Data} (Jul 2023 - Aug 2023, Wuxi, China)
-\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
-  \item Assisted in backend development and conducted literature reviews on LLMs and agentic systems
-  \item Authored professional report on software-related industries in China, focusing on AI innovation
-\end{itemize}
-
-\vspace{0.5em}
-
-\textbf{Banker Intern, Bank of Huaxia} (Feb 2024 - May 2024, Kunshan, China)
-\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
-  \item Investigated client businesses, conducted credit analysis and market research
-  \item Drafted over 50 audit reports on local electronics companies and conducted industry research
-\end{itemize}
-
-\vspace{0.5em}
-
-\textbf{Materials Research with Prof. Xiawa Wang} (Jan 2024 - May 2024, Duke Kunshan University)
-\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
-  \item Researched temperature-induced electronic, magnetic, and structural properties of emerging solid-state materials including Pb$_{10-x}$Cu$_x$(PO$_4$)$_6$O (LK-99)
-  \item Utilized temperature-dependent X-ray diffraction, Raman spectroscopy, and DFT calculations
-  \item Produced conference paper presented at MC17 (Materials Chemistry 17, Royal Society of Chemistry)
-  \item Publication: "Analyzing temperature-induced phase transitions in Pb$_{10-x}$Cu$_x$(PO$_4$)$_6$O" (co-first author)
-\end{itemize}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.7\textwidth]{assets/placeholder_1600x900.png}
-\caption{Example output from duty scheduler showing 4-week rotation matrix with RA assignments color-coded by preference satisfaction level. The algorithm ensures equal distribution of weekend and weekday duties while respecting conflict constraints.}
-\end{figure}
-
+\input{sections/_50_personal_creative/02_experience_research.tex}
 \vspace{2em}
-
-% ============================================================================
-% CREATIVE: Data Art
-% ============================================================================
-
-\subsection*{Generative Data Art}
 \addcontentsline{toc}{subsection}{Generative Data Art}
-
-\textbf{Concept:} Exploring the boundary between scientific visualization and artistic expression by creating aesthetically compelling images from real datasets.
-
-\vspace{0.5em}
-
-\textbf{Examples:}
-
-\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
-  \item \textbf{Neural Network Weights:} Visualized CNN filter weights as abstract patterns; used dimensionality reduction (PCA, t-SNE) to create 2D/3D compositions
-  \item \textbf{Audio Waveforms:} Converted music into polar coordinate spectrograms with artistic color gradients; printed as posters
-  \item \textbf{Fractal Generation:} Implemented Julia set and Mandelbrot set renderers with custom color palettes; explored connections to dynamical systems
-  \item \textbf{Geographic Data:} Created minimalist maps from OpenStreetMap data with stylized rendering (inspired by Stamen Design)
-\end{itemize}
-
-\vspace{0.5em}
-
-\textbf{Tools Used:} Python (NumPy, Pillow, matplotlib, seaborn), Processing (Java), D3.js for web-based interactive visualizations
-
-\vspace{0.5em}
-
-\textbf{Philosophy:} Data visualization shouldn't just communicate information—it should evoke curiosity and aesthetic appreciation. By treating data as creative medium, we can engage broader audiences with scientific concepts.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.6\textwidth]{assets/placeholder_1600x900.png}
-\caption{Generative art piece: Neural network weight visualization. Each pixel represents a weight value from a trained CNN; colors mapped using custom perceptually-uniform colormap. The emergent patterns reflect the hierarchical organization learned by the network.}
-\end{figure}
-
-\vspace{1em}
-
-\textbf{Exhibitions \& Sharing:}
-\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
-  \item Displayed in Duke's student art gallery (2024 Spring showcase)
-  \item Shared on GitHub with reproducible code and tutorials
-  \item Featured in Duke Computer Science department newsletter
-\end{itemize}
+\input{sections/_50_personal_creative/01_data_art.tex}
 

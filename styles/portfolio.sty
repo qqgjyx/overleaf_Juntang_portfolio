@@ -43,6 +43,7 @@
 \RequirePackage{qrcode}
 \RequirePackage{fancyhdr}
 \RequirePackage{titlesec}
+\RequirePackage[most]{tcolorbox}
 
 % ============================================================================
 % FONT CONFIGURATION
@@ -135,6 +136,22 @@
 % REUSABLE MACROS
 % ============================================================================
 
+% Project entry card style (toggleable)
+\newif\ifProjectCards
+\ProjectCardstrue
+\newtcolorbox{projectcard}{
+  enhanced,
+  boxrule=0.4pt,
+  colframe=Accent!30,
+  colback=Accent!4,
+  coltitle=TextGray,
+  sharp corners=all,
+  arc=2pt,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  before skip=0.4em, after skip=0.8em,
+  breakable
+}
+
 % Badge/Tag for highlighting skills or status
 \newcommand{\badge}[1]{%
   \tikz[baseline=(char.base)]{
@@ -156,23 +173,22 @@
   \vspace{0.4em}
   {\sffamily\bfseries\fontsize{15}{18}\selectfont\textcolor{Accent}{#1}}\par
   {\color{Accent!35}\rule{\linewidth}{0.5pt}}\par\vspace{0.3em}
-  \textit{#2}\quad\textcolor{TextGray}{#3}\par
-  \begin{itemize}[leftmargin=1.2em, itemsep=0.2em, topsep=0.2em]
-    #4
-  \end{itemize}
-  \noindent
-  \begin{minipage}[t]{0.62\textwidth}
-    \small \textbf{Links:} #6
-    \par\vspace{0.3em}
-    \small \textbf{Highlights:} #7
-  \end{minipage}\hfill
-  \begin{minipage}[t]{0.35\textwidth}
-    \raggedleft
-    \includegraphics[width=\linewidth]{#5}
-  \end{minipage}
-  \par\vspace{0.6em}
-  \hrule
-  \vspace{0.6em}
+  \ifProjectCards\begin{projectcard}\fi
+    \textit{#2}\quad\textcolor{TextGray}{#3}\par
+    \begin{itemize}[leftmargin=1.2em, itemsep=0.2em, topsep=0.2em]
+      #4
+    \end{itemize}
+    \noindent
+    \begin{minipage}[t]{0.62\textwidth}
+      \small \textbf{Links:} #6
+      \par\vspace{0.3em}
+      \small \textbf{Highlights:} #7
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.35\textwidth}
+      \raggedleft
+      \includegraphics[width=\linewidth]{#5}
+    \end{minipage}
+  \ifProjectCards\end{projectcard}\fi
 }
 
 % External link with icon

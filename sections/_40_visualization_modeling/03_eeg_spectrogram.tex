@@ -1,0 +1,23 @@
+% ============================================================================
+% VISUALIZATION: EEG Time-Frequency Analysis
+% ============================================================================
+
+\subsection*{EEG Time-Frequency Dynamics During Sleep Transitions}
+
+% \begin{figure}[h]
+% \centering
+% \includegraphics[width=0.9\textwidth]{assets/proj_eeg_1.png}
+% \caption{Time-frequency spectrogram of EEG activity during wake-to-sleep transition. Generated using continuous wavelet transform (Morlet wavelet) in R with ggplot2. Note the characteristic decrease in beta activity (13-30 Hz) and increase in delta power (0.5-4 Hz) as the subject transitions from wake (left) to NREM sleep (right). The sharp spindle activity (12-15 Hz bursts) marks Stage 2 sleep onset.}
+% \end{figure}
+
+\textbf{Technical Details:}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.1em]
+  \item Continuous wavelet transform with Morlet wavelet (frequency range: 0.5-40 Hz)
+  \item Time resolution: 30-second epochs; frequency resolution: 0.5 Hz bins
+  \item Normalized power spectral density (dB scale relative to baseline)
+  \item Created using custom R pipeline with \texttt{eegkit}, \texttt{signal}, and \texttt{ggplot2}
+\end{itemize}
+
+\textbf{Insight:} Time-frequency analysis reveals transient dynamics that are invisible in traditional power spectrum plots. This visualization technique is essential for understanding non-stationary brain activity during cognitive tasks and sleep state transitions.
+
+
